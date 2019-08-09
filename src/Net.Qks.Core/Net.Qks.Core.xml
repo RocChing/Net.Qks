@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Net.Qks.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Net.Qks.AppVersionHelper">
+            <summary>
+            Central point for application version.
+            </summary>
+        </member>
+        <member name="F:Net.Qks.AppVersionHelper.Version">
+            <summary>
+            Gets current version of the application.
+            It's also shown in the web page.
+            </summary>
+        </member>
+        <member name="P:Net.Qks.AppVersionHelper.ReleaseDate">
+            <summary>
+            Gets release (last build) date of the application.
+            It's shown in the web page.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Authentication.TwoFactor.Google.GoogleTwoFactorAuthenticateService">
+            <summary>
+            This code taken from https://github.com/BrandonPotter/GoogleAuthenticator
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Authorization.AppAuthorizationProvider">
+            <summary>
+            Application's authorization provider.
+            Defines permissions for the application.
+            See <see cref="T:Net.Qks.Authorization.AppPermissions"/> for all permission names.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Authorization.AppPermissions">
+            <summary>
+            Defines string constants for application's permission names.
+            <see cref="T:Net.Qks.Authorization.AppAuthorizationProvider"/> for permission definitions.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Authorization.Roles.Role">
+            <summary>
+            Represents a role in the system.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Authorization.Roles.RoleManager">
+            <summary>
+            Role manager.
+            Used to implement domain logic for roles.
+            </summary>
+        </member>
+        <member name="M:Net.Qks.Authorization.Users.IUserEmailer.SendEmailActivationLinkAsync(Net.Qks.Authorization.Users.User,System.String,System.String)">
+            <summary>
+            Send email activation link to user's email address.
+            </summary>
+            <param name="user">User</param>
+            <param name="link">Email activation link</param>
+            <param name="plainPassword">
+            Can be set to user's plain password to include it in the email.
+            </param>
+        </member>
+        <member name="M:Net.Qks.Authorization.Users.IUserEmailer.SendPasswordResetLinkAsync(Net.Qks.Authorization.Users.User,System.String)">
+            <summary>
+            Sends a password reset link to user's email.
+            </summary>
+            <param name="user">User</param>
+            <param name="link">Password reset link (optional)</param>
+        </member>
+        <member name="M:Net.Qks.Authorization.Users.IUserEmailer.TryToSendChatMessageMail(Net.Qks.Authorization.Users.User,System.String,System.String,Net.Qks.Chat.ChatMessage)">
+            <summary>
+            Sends an email for unread chat message to user's email.
+            </summary>
+            <param name="user"></param>
+            <param name="senderUsername"></param>
+            <param name="senderTenancyName"></param>
+            <param name="chatMessage"></param>
+        </member>
+        <member name="T:Net.Qks.Authorization.Users.User">
+            <summary>
+            Represents a user in the system.
+            </summary>
+        </member>
+        <member name="M:Net.Qks.Authorization.Users.User.CreateTenantAdminUser(System.Int32,System.String)">
+            <summary>
+            Creates admin <see cref="T:Net.Qks.Authorization.Users.User"/> for a tenant.
+            </summary>
+            <param name="tenantId">Tenant Id</param>
+            <param name="emailAddress">Email address</param>
+            <returns>Created <see cref="T:Net.Qks.Authorization.Users.User"/> object</returns>
+        </member>
+        <member name="T:Net.Qks.Authorization.Users.UserEmailer">
+            <summary>
+            Used to send email to users.
+            </summary>
+        </member>
+        <member name="M:Net.Qks.Authorization.Users.UserEmailer.SendEmailActivationLinkAsync(Net.Qks.Authorization.Users.User,System.String,System.String)">
+            <summary>
+            Send email activation link to user's email address.
+            </summary>
+            <param name="user">User</param>
+            <param name="link">Email activation link</param>
+            <param name="plainPassword">
+            Can be set to user's plain password to include it in the email.
+            </param>
+        </member>
+        <member name="M:Net.Qks.Authorization.Users.UserEmailer.SendPasswordResetLinkAsync(Net.Qks.Authorization.Users.User,System.String)">
+            <summary>
+            Sends a password reset link to user's email.
+            </summary>
+            <param name="user">User</param>
+            <param name="link">Reset link</param>
+        </member>
+        <member name="M:Net.Qks.Authorization.Users.UserEmailer.EncryptQueryParameters(System.String,System.String)">
+            <summary>
+            Returns link with encrypted parameters
+            </summary>
+            <param name="link"></param>
+            <param name="encrptedParameterName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Net.Qks.Authorization.Users.UserManager">
+            <summary>
+            User manager.
+            Used to implement domain logic for users.
+            Extends <see cref="T:Abp.Authorization.Users.AbpUserManager`2"/>.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Authorization.Users.UserStore">
+            <summary>
+            Used to perform database operations for <see cref="T:Net.Qks.Authorization.Users.UserManager"/>.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Chat.ChatChannel">
+            <summary>
+            This class is defined to use a generic version of IOnlineClientManager for ChatHub
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Configuration.AppSettingProvider">
+            <summary>
+            Defines settings for the application.
+            See <see cref="T:Net.Qks.Configuration.AppSettings"/> for setting names.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Configuration.AppSettings">
+            <summary>
+            Defines string constants for setting names in the application.
+            See <see cref="T:Net.Qks.Configuration.AppSettingProvider"/> for setting definitions.
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Develop.PluginOptions.ProjectPath">
+            <summary>
+            项目路径
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Develop.PluginOptions.PluginPath">
+            <summary>
+            插件路径
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Develop.PluginOptions.Loaded">
+            <summary>
+            是否加载成功
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Develop.PluginOptions.LoadMsg">
+            <summary>
+            加载结果
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Develop.PluginOptions.Environment">
+            <summary>
+            环境
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Editions.SubscribableEdition">
+            <summary>
+            Extends <see cref="T:Abp.Application.Editions.Edition"/> to add subscription features.
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Editions.SubscribableEdition.ExpiringEditionId">
+            <summary>
+            The edition that will assigned after expire date
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Editions.SubscribableEdition.WaitingDayAfterExpire">
+            <summary>
+            The account will be taken an action (termination of tenant account) after the specified days when the subscription is expired.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.MultiTenancy.Demo.TenantDemoDataBuilder">
+            <summary>
+            Used to build demo data for new tenants.
+            Creates sample organization units, users... etc.
+            It works only if in DEMO mode ("App.DemoMode" should be "true" in web.config). Otherwise, does nothing.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.MultiTenancy.Tenant">
+            <summary>
+            Represents a Tenant in the system.
+            A tenant is a isolated customer for the application
+            which has it's own users, roles and other application entities.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.MultiTenancy.TenantManager">
+            <summary>
+            Tenant manager.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.QksServiceBase">
+            <summary>
+            This class can be used as a base class for services in this application.
+            It has some useful objects property-injected and has some basic methods most of services may need to.
+            It's suitable for non domain nor application service classes.
+            For domain services inherit <see cref="T:Net.Qks.QksDomainServiceBase"/>.
+            For application services inherit QksAppServiceBase.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Web.WebContentDirectoryFinder">
+            <summary>
+            This class is used to find root path of the web project in;
+            unit tests (to find views) and entity framework core command line commands (to find conn string).
+            </summary>
+        </member>
+    </members>
+</doc>

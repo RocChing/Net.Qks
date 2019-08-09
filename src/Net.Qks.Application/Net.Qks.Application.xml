@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Net.Qks.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Net.Qks.Auditing.AuditLogAndUser">
+            <summary>
+            A helper class to store an <see cref="P:Net.Qks.Auditing.AuditLogAndUser.AuditLog"/> and a <see cref="P:Net.Qks.Auditing.AuditLogAndUser.User"/> object.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Auditing.EntityChangeAndUser">
+            <summary>
+            A helper class to store an <see cref="P:Net.Qks.Auditing.EntityChangeAndUser.EntityChange"/> and a <see cref="P:Net.Qks.Auditing.EntityChangeAndUser.User"/> object.
+            </summary>
+        </member>
+        <member name="M:Net.Qks.Authorization.Permissions.PermissionManagerExtensions.GetPermissionsFromNamesByValidating(Abp.Authorization.IPermissionManager,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Gets all permissions by names.
+            Throws <see cref="T:Abp.Runtime.Validation.AbpValidationException"/> if can not find any of the permission names.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Authorization.Roles.RoleAppService">
+            <summary>
+            Application service that is used by 'role management' page.
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Authorization.Users.Importing.Dto.ImportUserDto.AssignedRoleNames">
+            <summary>
+            comma separated list
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Authorization.Users.Importing.Dto.ImportUserDto.Exception">
+            <summary>
+            Can be set when reading data from excel or when importing user
+            </summary>
+        </member>
+        <member name="M:Net.Qks.Develop.PluginAppService.Update">
+            <summary>
+            插件更新
+            </summary>
+        </member>
+        <member name="M:Net.Qks.Develop.PluginAppService.AddMigrations(System.String,System.Boolean)">
+            <summary>
+            增加数据迁移
+            </summary>
+            <param name="name">迁移名称(建议英文)</param>
+            <param name="update">是否更新数据库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Net.Qks.Develop.PluginAppService.RemoveMigrations(System.Boolean)">
+            <summary>
+            移除最近一次数据迁移
+            </summary>
+            <param name="update">是否更新数据库</param>
+            <returns></returns>
+        </member>
+        <member name="P:Net.Qks.Editions.MoveTenantsToAnotherEditionJobArgs.SourceEditionId">
+            <summary>
+            Id of the source edition to move tenants from
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Editions.MoveTenantsToAnotherEditionJobArgs.TargetEditionId">
+            <summary>
+            Id of the target edition for tenants to move
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Editions.MoveTenantsToAnotherEditionJobArgs.User">
+            <summary>
+            Identifier of the user who starts move operation
+            </summary>
+        </member>
+        <member name="T:Net.Qks.QksApplicationModule">
+            <summary>
+            Application layer module of the application.
+            </summary>
+        </member>
+        <member name="T:Net.Qks.QksAppServiceBase">
+            <summary>
+            Derive your application services from this class.
+            </summary>
+        </member>
+    </members>
+</doc>

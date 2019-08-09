@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Net.Qks.Application.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:Net.Qks.AppConsts">
+            <summary>
+            Some consts used in the application.
+            </summary>
+        </member>
+        <member name="F:Net.Qks.AppConsts.DefaultPageSize">
+            <summary>
+            Default page size for paged requests.
+            </summary>
+        </member>
+        <member name="F:Net.Qks.AppConsts.MaxPageSize">
+            <summary>
+            Maximum allowed page size for paged requests.
+            </summary>
+        </member>
+        <member name="F:Net.Qks.AppConsts.DefaultPassPhrase">
+            <summary>
+            Default pass phrase for SimpleStringCipher decrypt/encrypt operations
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Authorization.Accounts.Dto.ActivateEmailInput.c">
+            <summary>
+            Encrypted values for {TenantId}, {UserId} and {ConfirmationCode}
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Authorization.Accounts.Dto.ResetPasswordInput.c">
+            <summary>
+            Encrypted values for {TenantId}, {UserId} and {ResetCode}
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Authorization.Roles.IRoleAppService">
+            <summary>
+            Application service that is used by 'role management' page.
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Authorization.Users.Dto.UserEditDto.Id">
+            <summary>
+            Set null to create a new user. Set user's Id to update a user
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Configuration.Host.Dto.GeneralSettingsEditDto.TimezoneForComparison">
+            <summary>
+            This value is only used for comparing user's timezone to default timezone
+            </summary>
+        </member>
+        <member name="M:Net.Qks.Configuration.Tenants.Dto.TenantSettingsEditDto.ValidateHostSettings">
+            <summary>
+            This validation is done for single-tenant applications.
+            Because, these settings can only be set by tenant in a single-tenant application.
+            </summary>
+        </member>
+        <member name="M:Net.Qks.Develop.IPluginAppService.Update">
+            <summary>
+            更新插件
+            </summary>
+        </member>
+        <member name="P:Net.Qks.Localization.Dto.ApplicationLanguageEditDto.IsEnabled">
+            <summary>
+            Mapped from Language.IsDisabled with using manual mapping in CustomDtoMapper.cs
+            </summary>
+        </member>
+    </members>
+</doc>

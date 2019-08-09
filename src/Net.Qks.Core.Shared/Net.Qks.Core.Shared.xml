@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Net.Qks.Core.Shared</name>
+    </assembly>
+    <members>
+        <member name="F:Net.Qks.Editions.EditionPaymentType.NewRegistration">
+            <summary>
+            Payment on first tenant registration.
+            </summary>
+        </member>
+        <member name="F:Net.Qks.Editions.EditionPaymentType.BuyNow">
+            <summary>
+            Purchasing by an existing tenant that currently using trial version of a paid edition.
+            </summary>
+        </member>
+        <member name="F:Net.Qks.Editions.EditionPaymentType.Upgrade">
+            <summary>
+            A tenant is upgrading it's edition (either from a free edition or from a low-price paid edition).
+            </summary>
+        </member>
+        <member name="F:Net.Qks.Editions.EditionPaymentType.Extend">
+            <summary>
+            A tenant is extending it's current edition (without changing the edition).
+            </summary>
+        </member>
+        <member name="T:Net.Qks.Notifications.AppNotificationNames">
+            <summary>
+            Constants for notification names used in this application.
+            </summary>
+        </member>
+    </members>
+</doc>
