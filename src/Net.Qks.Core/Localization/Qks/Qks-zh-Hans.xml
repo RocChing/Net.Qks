@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-Hans">
   <texts>
+    <text name="Pages.Develops">开发管理</text>
+    <text name="Pages.Tables">实体</text>
+    <text name="Pages.Tables.Create">创建实体</text>
+    <text name="Pages.Tables.Edit">编辑实体</text>
+    <text name="Pages.Tables.Delete">删除实体</text>
+    <text name="Pages.Tables.Info">管理实体和字段</text>
+
+    <text name="Pages.Tables.Name">实体名称</text>
+    
     <text name="HomePage">主页</text>
     <text name="AboutUs">关于我们</text>
     <text name="Administration">系统管理</text>

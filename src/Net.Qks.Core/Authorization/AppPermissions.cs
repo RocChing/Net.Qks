@@ -70,5 +70,14 @@
         public const string Pages_Administration_Host_Settings = "Pages.Administration.Host.Settings";
         public const string Pages_Administration_Host_Dashboard = "Pages.Administration.Host.Dashboard";
 
+        public class Develop
+        {
+            public const string Develops = "Pages.Develops";
+            public const string Tables = "Pages.Tables";
+            public const string Tables_Create = "Pages.Tables.Create";
+            public const string Tables_Edit = "Pages.Tables.Edit";
+            public const string Tables_Delete = "Pages.Tables.Delete";
+            public const string Tables_Info = "Pages.Tables.Info";
+        }
     }
 }

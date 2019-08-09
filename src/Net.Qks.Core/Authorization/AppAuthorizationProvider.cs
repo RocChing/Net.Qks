@@ -31,6 +31,12 @@ namespace Net.Qks.Authorization
             var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
             pages.CreateChildPermission(AppPermissions.Pages_DemoUiComponents, L("DemoUiComponents"));
 
+            var develops = pages.CreateChildPermission(AppPermissions.Develop.Develops, L(AppPermissions.Develop.Develops));
+            var tables = develops.CreateChildPermission(AppPermissions.Develop.Tables, L(AppPermissions.Develop.Tables));
+            tables.CreateChildPermission(AppPermissions.Develop.Tables_Create,L(AppPermissions.Develop.Tables_Create));
+            tables.CreateChildPermission(AppPermissions.Develop.Tables_Edit, L(AppPermissions.Develop.Tables_Edit));
+            tables.CreateChildPermission(AppPermissions.Develop.Tables_Delete, L(AppPermissions.Develop.Tables_Delete));
+
             var administration = pages.CreateChildPermission(AppPermissions.Pages_Administration, L("Administration"));
 
             var roles = administration.CreateChildPermission(AppPermissions.Pages_Administration_Roles, L("Roles"));
@@ -74,7 +80,7 @@ namespace Net.Qks.Authorization
             editions.CreateChildPermission(AppPermissions.Pages_Editions_Create, L("CreatingNewEdition"), multiTenancySides: MultiTenancySides.Host);
             editions.CreateChildPermission(AppPermissions.Pages_Editions_Edit, L("EditingEdition"), multiTenancySides: MultiTenancySides.Host);
             editions.CreateChildPermission(AppPermissions.Pages_Editions_Delete, L("DeletingEdition"), multiTenancySides: MultiTenancySides.Host);
-            editions.CreateChildPermission(AppPermissions.Pages_Editions_MoveTenantsToAnotherEdition, L("MoveTenantsToAnotherEdition"), multiTenancySides: MultiTenancySides.Host); 
+            editions.CreateChildPermission(AppPermissions.Pages_Editions_MoveTenantsToAnotherEdition, L("MoveTenantsToAnotherEdition"), multiTenancySides: MultiTenancySides.Host);
 
             var tenants = pages.CreateChildPermission(AppPermissions.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
             tenants.CreateChildPermission(AppPermissions.Pages_Tenants_Create, L("CreatingNewTenant"), multiTenancySides: MultiTenancySides.Host);

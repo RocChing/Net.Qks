@@ -11,6 +11,8 @@ using Net.Qks.MultiTenancy.Accounting;
 using Net.Qks.MultiTenancy.Payments;
 using Net.Qks.Storage;
 
+using Net.Qks.Develop;
+
 namespace Net.Qks.EntityFrameworkCore
 {
     public class QksDbContext : AbpZeroDbContext<Tenant, Role, User, QksDbContext>, IAbpPersistedGrantDbContext
@@ -30,6 +32,10 @@ namespace Net.Qks.EntityFrameworkCore
         public virtual DbSet<Invoice> Invoices { get; set; }
 
         public virtual DbSet<PersistedGrantEntity> PersistedGrants { get; set; }
+
+        public virtual DbSet<Table> Tables { get; set; }
+
+        public virtual DbSet<Column> Columns { get; set; }
 
         public QksDbContext(DbContextOptions<QksDbContext> options)
             : base(options)

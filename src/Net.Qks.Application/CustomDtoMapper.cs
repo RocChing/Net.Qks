@@ -35,12 +35,15 @@ using Net.Qks.Notifications.Dto;
 using Net.Qks.Organizations.Dto;
 using Net.Qks.Sessions.Dto;
 
+using Net.Qks.Develop;
+
 namespace Net.Qks
 {
     internal static class CustomDtoMapper
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+            #region abp
             //Inputs
             configuration.CreateMap<CheckboxInputType, FeatureInputTypeDto>();
             configuration.CreateMap<SingleLineStringInputType, FeatureInputTypeDto>();
@@ -130,8 +133,11 @@ namespace Net.Qks
 
             //OrganizationUnit
             configuration.CreateMap<OrganizationUnit, OrganizationUnitDto>();
-
+            #endregion
             /* ADD YOUR OWN CUSTOM AUTOMAPPER MAPPINGS HERE */
+
+            configuration.CreateMap<Table, TableDto>().ReverseMap();
+            configuration.CreateMap<Column, ColumnDto>().ReverseMap();
         }
     }
 }

@@ -55,6 +55,27 @@
             <param name="update">是否更新数据库</param>
             <returns></returns>
         </member>
+        <member name="M:Net.Qks.Develop.TableAppService.GetList(Net.Qks.Develop.GetTablesInput)">
+            <summary>
+            查询实体
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Net.Qks.Develop.TableAppService.CreateOrUpdate(Net.Qks.Develop.TableDto)">
+            <summary>
+            创建或修改实体
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Net.Qks.Develop.TableAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除实体
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="P:Net.Qks.Editions.MoveTenantsToAnotherEditionJobArgs.SourceEditionId">
             <summary>
             Id of the source edition to move tenants from

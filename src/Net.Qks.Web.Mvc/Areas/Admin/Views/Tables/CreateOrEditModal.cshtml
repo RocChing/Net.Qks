@@ -1,0 +1,43 @@
+﻿@using Abp.Authorization
+@using Abp.Configuration
+@using Abp.Json
+@using Abp.Zero.Configuration
+@using Net.Qks.Develop
+@model TableDto
+@{
+    bool isEditMode = Model.Id > 0;
+}
+@await Html.PartialAsync(WebConsts.ModalHeaderName, new ModalHeaderViewModel(isEditMode ? (L(AppPermissions.Develop.Tables_Edit) + ": " + Model.Name) : L(AppPermissions.Develop.Tables_Create)))
+
+<div class="modal-body">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#panel1" class="nav-link active" data-toggle="tab" role="tab">
+                基础
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#panel2" data-toggle="tab" role="tab" class="nav-link">
+                基础
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#panel3" data-toggle="tab" role="tab" class="nav-link">
+                基础
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="panel1" role="tabpanel">
+            内容1
+        </div>
+        <div class="tab-pane" id="panel2" role="tabpanel">
+            内容2
+        </div>
+        <div class="tab-pane" id="panel3" role="tabpanel">
+            内容3
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync(WebConsts.ModalFooterName)

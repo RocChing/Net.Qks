@@ -118,7 +118,14 @@ namespace Net.Qks.Web.Areas.Admin.Startup
                             permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Administration_Tenant_Settings)
                         )
                     )
-                ).AddItem(new MenuItemDefinition(
+                )
+                .AddItem(new MenuItemDefinition(
+                    AppPermissions.Develop.Develops, 
+                    L(AppPermissions.Develop.Develops), 
+                    icon: "flaticon2-gear")
+                        .AddItem(new MenuItemDefinition(AppPermissions.Develop.Tables, L(AppPermissions.Develop.Tables), url: "Admin/Tables", icon: "flaticon2-cube", permissionDependency: new SimplePermissionDependency(AppPermissions.Develop.Tables)))
+                )
+                .AddItem(new MenuItemDefinition(
                         AdminPageNames.Common.DemoUiComponents,
                         L("DemoUiComponents"),
                         url: "Admin/DemoUiComponents",

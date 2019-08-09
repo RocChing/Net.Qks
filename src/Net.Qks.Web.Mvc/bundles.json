@@ -1,6 +1,10 @@
 {
   "scripts": [
     {
+      "output": "view-resources/Areas/Admin/Views/_Bundles/table-index.min.js",
+      "input": [ "wwwroot/view-resources/Areas/Admin/Views/Develop/table-index.js" ]
+    },
+    {
       "output": "view-resources/Areas/Admin/Views/_Bundles/common-scripts.min.js",
       "input": [
         "wwwroot/Common/Scripts/_empty.js",

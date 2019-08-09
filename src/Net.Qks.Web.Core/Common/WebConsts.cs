@@ -16,5 +16,9 @@
             public static bool PlaygroundEnabled = false;
             public static bool Enabled = false;
         }
+
+        public const string ModalHeaderName = "~/Areas/Admin/Views/Common/Modals/_ModalHeader.cshtml";
+
+        public const string ModalFooterName = "~/Areas/Admin/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml";
     }
 }

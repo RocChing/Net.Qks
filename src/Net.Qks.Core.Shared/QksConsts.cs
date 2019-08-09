@@ -15,6 +15,8 @@
 
         public const string CurrencySign = "$";
 
+        public const string Admin = "Admin";
+
         public const int DefaultOrderValue = 100;
 
         public const string NetQksApplication = "Net.Qks.Application";

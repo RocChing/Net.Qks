@@ -10,7 +10,7 @@ using Net.Qks.Web.Controllers;
 
 namespace Net.Qks.Web.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area(QksConsts.Admin)]
     [DisableAuditing]
     [AbpMvcAuthorize(AppPermissions.Pages_Administration_AuditLogs)]
     public class AuditLogsController : QksControllerBase
