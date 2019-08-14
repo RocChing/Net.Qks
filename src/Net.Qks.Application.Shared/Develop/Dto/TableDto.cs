@@ -4,50 +4,80 @@ using System.Collections.Generic;
 
 namespace Net.Qks.Develop
 {
-    public class TableDto : EntityDto<int>
+    public class TableDto : FullDto
     {
-        [Required]
-        [MaxLength(QksConsts.Field.Len50)]
+        public TableDto()
+        {
+            Columns = new List<ColumnDto>();
+        }
+
+        [Display(Name = "名称")]
+        [Required(ErrorMessage = QksConsts.ErrorMsg.Required)]
+        [MaxLength(QksConsts.Field.Len50, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string Name { get; set; }
 
-        [MaxLength(QksConsts.Field.Len50)]
+        [Display(Name = "表名")]
+        [MaxLength(QksConsts.Field.Len50, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string DbName { get; set; }
 
-        [Required]
-        [MaxLength(QksConsts.Field.Len200)]
+        [Display(Name = "命名空间")]
+        [Required(ErrorMessage = QksConsts.ErrorMsg.Required)]
+        [MaxLength(QksConsts.Field.Len200, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string Namespace { get; set; }
 
-        [Required]
-        [MaxLength(QksConsts.Field.Len50)]
+        [Display(Name = "服务名称")]
+        [Required(ErrorMessage = QksConsts.ErrorMsg.Required)]
+        [MaxLength(QksConsts.Field.Len50, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string ServiceName { get; set; }
 
-        [Required]
-        [MaxLength(QksConsts.Field.Len50)]
+        [Display(Name = "Dto名称")]
+        [Required(ErrorMessage = QksConsts.ErrorMsg.Required)]
+        [MaxLength(QksConsts.Field.Len50, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string DtoName { get; set; }
 
-        [MaxLength(QksConsts.Field.Len50)]
+        [Display(Name = "授权名称")]
+        [MaxLength(QksConsts.Field.Len50, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string AuthorizeName { get; set; }
 
-        [MaxLength(QksConsts.Field.Len50)]
+        [Display(Name = "查询参数名称")]
+        [MaxLength(QksConsts.Field.Len50, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string GetAllInputName { get; set; }
 
-        [MaxLength(QksConsts.Field.Len50)]
+        [Display(Name = "创建参数名称")]
+        [MaxLength(QksConsts.Field.Len50, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string CreateInputName { get; set; }
 
-        [MaxLength(QksConsts.Field.Len50)]
+        [Display(Name = "更新参数名称")]
+        [MaxLength(QksConsts.Field.Len50, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string UpdateInputName { get; set; }
 
-        [MaxLength(QksConsts.Field.Len100)]
+        [Display(Name = "创建权限名称")]
+        [MaxLength(QksConsts.Field.Len100, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string CreatePermissionName { get; set; }
-        [MaxLength(QksConsts.Field.Len100)]
+
+        [Display(Name = "列表权限名称")]
+        [MaxLength(QksConsts.Field.Len100, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string GetAllPermissionName { get; set; }
-        [MaxLength(QksConsts.Field.Len100)]
+
+        [Display(Name = "单个权限名称")]
+        [MaxLength(QksConsts.Field.Len100, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string GetPermissionName { get; set; }
-        [MaxLength(QksConsts.Field.Len100)]
+
+        [Display(Name = "更新权限名称")]
+        [MaxLength(QksConsts.Field.Len100, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string UpdatePermissionName { get; set; }
-        [MaxLength(QksConsts.Field.Len100)]
+
+        [Display(Name = "删除权限名称")]
+        [MaxLength(QksConsts.Field.Len100, ErrorMessage = QksConsts.ErrorMsg.MaxLength)]
         public string DeletePermissionName { get; set; }
 
-        public List<ColumnDto> Columns { get; set; }
+        public virtual List<ColumnDto> Columns { get; set; }
+
+        public ColumnDto Find(int id)
+        {
+            if (Columns != null && Columns.Count > 0)
+                return Columns.Find(m => m.Id == id);
+            return null;
+        }
     }
 }

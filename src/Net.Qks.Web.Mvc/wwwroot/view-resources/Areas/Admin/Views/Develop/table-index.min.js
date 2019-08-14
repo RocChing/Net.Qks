@@ -2,6 +2,10 @@
     $(function () {
         var _table = $('#UsersTable');
         var _service = abp.services.qks.table;
+        var _permissions = {
+            edit: abp.auth.hasPermission('Pages.Tables.Edit'),
+            'delete': abp.auth.hasPermission('Pages.Tables.Delete')
+        };
 
         var _createOrEditModal = new app.ModalManager({
             viewUrl: abp.appPath + 'Admin/Tables/CreateOrEditModal',
@@ -39,20 +43,6 @@
                     rowAction: {
                         text: '<i class="fa fa-cog"></i> ' + app.localize('Actions') + ' <span class="caret"></span>',
                         items: [{
-                            text: app.localize('LoginAsThisUser'),
-                            visible: function (data) {
-                                return _permissions.impersonation && data.record.id !== abp.session.userId;
-                            },
-                            action: function (data) {
-                                abp.ajax({
-                                    url: abp.appPath + 'Account/Impersonate',
-                                    data: JSON.stringify({
-                                        tenantId: abp.session.tenantId,
-                                        userId: data.record.id
-                                    })
-                                });
-                            }
-                        }, {
                             text: app.localize('Edit'),
                             visible: function () {
                                 return _permissions.edit;
@@ -61,55 +51,19 @@
                                 _createOrEditModal.open({ id: data.record.id });
                             }
                         }, {
-                            text: app.localize('Permissions'),
-                            visible: function () {
-                                return _permissions.changePermissions;
-                            },
-                            action: function (data) {
-                                _userPermissionsModal.open({ id: data.record.id });
-                            }
-                        }, {
-                            text: app.localize('Unlock'),
-                            visible: function () {
-                                return _permissions.unlock;
-                            },
-                            action: function (data) {
-                                _userService.unlockUser({
-                                    id: data.record.id
-                                }).done(function () {
-                                    abp.notify.success(app.localize('UnlockedTheUser', data.record.userName));
-                                });
-                            }
-                        }, {
                             text: app.localize('Delete'),
                             visible: function () {
                                 return _permissions.delete;
                             },
                             action: function (data) {
-                                deleteUser(data.record);
+                                //deleteUser(data.record);
                             }
                         }]
                     }
                 },
                 {
                     targets: 2,
-                    data: "name",
-                    render: function (userName, type, row, meta) {
-                        var $container = $("<span/>");
-                        if (row.profilePictureId) {
-                            var profilePictureUrl = "/Profile/GetProfilePictureById?id=" + row.profilePictureId;
-                            var $link = $("<a/>").attr("href", profilePictureUrl).attr("target", "_blank");
-                            var $img = $("<img/>")
-                                .addClass("img-circle")
-                                .attr("src", profilePictureUrl);
-
-                            $link.append($img);
-                            $container.append($link);
-                        }
-
-                        $container.append(userName);
-                        return $container[0].outerHTML;
-                    }
+                    data: "name"
                 },
                 {
                     targets: 3,
@@ -177,8 +131,15 @@
         this.init = function (modalManager) {
             _modalManager = modalManager;
 
-            _form = _modalManager.getModal().find('form[name=UserInformationsForm]');
+            _form = _modalManager.getModal().find('form[name="saveForm"]');
+
+            $.validator.defaults.ignore = '';
+
+            $.validator.unobtrusive.parse(_form);
+
             _form.validate();
+
+            abp.event.trigger('app.opendModal');
         }
 
         this.save = function () {
@@ -186,8 +147,8 @@
                 return;
             }
 
-            var model = _form.serializeFormToObject();
-
+            var model = _form.serializeJSON({ useIntKeysAsArrayIndex: true });
+ 
             _modalManager.setBusy(true);
             _service.createOrUpdate(model).done(function () {
                 abp.notify.info(app.localize('SavedSuccessfully'));

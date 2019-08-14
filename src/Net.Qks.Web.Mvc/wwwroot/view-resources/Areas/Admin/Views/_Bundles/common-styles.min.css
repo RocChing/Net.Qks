@@ -102,6 +102,31 @@ span.phone-number-verified {
 .glowing {
   animation: glowing 2s infinite;
 }
+/*add by roc*/
+.field-validation-error {
+  color: #fd397a;
+}
+.col-form-label {
+  text-align: right;
+}
+.form-group {
+  margin-bottom: 1rem !important;
+}
+.form-check-input {
+  margin-top: 11px !important;
+}
+.list-group-item .delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #f00;
+}
+.list-group-item .delete:hover {
+  color: red;
+}
+.hidden {
+  display: none !important;
+}
 
 /* poppins-300 - devanagari_latin-ext_latin */
 @font-face {

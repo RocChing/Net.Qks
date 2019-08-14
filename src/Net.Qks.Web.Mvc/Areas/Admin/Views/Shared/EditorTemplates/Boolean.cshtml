@@ -1,0 +1,10 @@
+﻿@model bool?
+@{
+    bool flag = Model ?? false;
+    string checkedString = flag ? "checked='checked'" : "";
+}
+<div class="form-check">
+    @Html.CheckBox("", Model, new { @class = "form-check-input" })
+    @*<input type="checkbox" class="form-check-input" value="@flag.ToString().ToLower()" @checkedString/>*@
+</div>
+

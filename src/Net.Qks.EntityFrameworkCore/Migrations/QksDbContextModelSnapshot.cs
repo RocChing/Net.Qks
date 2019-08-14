@@ -1134,7 +1134,8 @@ namespace Net.Qks.Migrations
 
                     b.Property<DateTime?>("DeletionTime");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(300);
 
                     b.Property<string>("FieldName")
                         .HasMaxLength(100);
@@ -1142,6 +1143,8 @@ namespace Net.Qks.Migrations
                     b.Property<bool>("IsAllowNull");
 
                     b.Property<bool>("IsDeleted");
+
+                    b.Property<bool>("IsIdentity");
 
                     b.Property<bool>("IsPrimaryKey");
 
@@ -1158,8 +1161,7 @@ namespace Net.Qks.Migrations
 
                     b.Property<int>("TableId");
 
-                    b.Property<string>("Type")
-                        .HasMaxLength(50);
+                    b.Property<int>("Type");
 
                     b.HasKey("Id");
 
@@ -1197,7 +1199,8 @@ namespace Net.Qks.Migrations
 
                     b.Property<DateTime?>("DeletionTime");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(300);
 
                     b.Property<string>("DtoName")
                         .HasMaxLength(50);

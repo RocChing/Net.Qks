@@ -51,6 +51,7 @@
     "jquery-sparkline": "^2.4.0",
     "jquery-ui": "^1.12.1",
     "jquery-validation": "^1.19.0",
+    "jquery-validation-unobtrusive": "^3.2.11",
     "jquery.counterup": "^2.1.0",
     "jquery.uniform": "^4.3.0",
     "jqvmap": "^1.5.1",

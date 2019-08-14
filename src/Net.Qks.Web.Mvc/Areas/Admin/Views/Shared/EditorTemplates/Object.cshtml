@@ -1,0 +1,35 @@
+﻿@{
+    var metaData = ViewData.ModelMetadata;
+}
+@model Object
+
+@foreach (var item in metaData.Properties.OrderBy(m => m.Order))
+{
+    if (item.IsComplexType)
+    {
+        continue;
+    }
+    if (!item.ShowForEdit || item.PropertyName.ToLower().Equals("id"))
+    {
+        <div class="hidden">
+            @Html.Hidden(item.PropertyName)
+        </div>
+        continue;
+    }
+    if (item.HideSurroundingHtml)
+    {
+        @Html.Editor(item.PropertyName)
+        @Html.ValidationMessage(item.PropertyName)
+    }
+    else
+    {
+        <div class="form-group row">
+            @Html.Label(item.PropertyName, item.DisplayName, new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-10">
+                @Html.Editor(item.PropertyName)
+                @Html.ValidationMessage(item.PropertyName)
+            </div>
+        </div>
+    }
+}
+

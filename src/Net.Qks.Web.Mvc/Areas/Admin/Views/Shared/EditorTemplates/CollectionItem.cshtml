@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Mvc.ModelBinding
+@inject IModelMetadataProvider MetadataProvider
+@{
+    var type = ViewData.Model.GetType();
+    var properties = MetadataProvider.GetMetadataForProperties(type);
+}
+@model Object
+
+@foreach (var item in properties.OrderBy(m => m.Order))
+{
+    if (item.IsComplexType)
+    {
+        continue;
+    }
+    if (!item.ShowForEdit || item.PropertyName.ToLower().Equals("id"))
+    {
+        <div class="hidden">
+            @Html.Hidden(item.PropertyName)
+        </div>
+        continue;
+    }
+    if (item.HideSurroundingHtml)
+    {
+        @Html.Editor(item.PropertyName)
+        @Html.ValidationMessage(item.PropertyName)
+    }
+    else
+    {
+        <div class="form-group row">
+            @Html.Label(item.PropertyName, item.DisplayName, new { @class = "col-md-12 col-lg-2 col-form-label" })
+            <div class="col-md-12 col-lg-9">
+                @Html.Editor(item.PropertyName)
+                @Html.ValidationMessage(item.PropertyName)
+            </div>
+        </div>
+    }
+}
+<button type="button" class="close delete" data-value="Delete"><span aria-hidden="true">×</span></button>
+

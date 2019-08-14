@@ -1,0 +1,21 @@
+﻿@model IList
+@{
+    var first = Activator.CreateInstance(ViewData.ModelMetadata.ModelType.GetTypeInfo().GetGenericArguments()[0]);
+    Model.Insert(0, first);
+}
+<ul class="list-group content">
+    <li class="list-group-item hidden template">@Html.EditorFor(m => m[0], "CollectionItem")</li>
+    @{
+        Model.RemoveAt(0);
+        for (int i = 0; i < Model.Count; i++)
+        {
+            <li class="list-group-item">
+                @Html.EditorFor(m => m[i], "CollectionItem")
+            </li>
+        }
+    }
+</ul>
+<ul class="list-group">
+    <li class="list-group-item"><input type="button" value="@L("Add")" class="btn btn-primary btn-xs add" data-value="create" /></li>
+</ul>
+

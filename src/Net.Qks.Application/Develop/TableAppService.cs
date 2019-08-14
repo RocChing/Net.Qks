@@ -27,7 +27,7 @@ namespace Net.Qks.Develop
         /// <returns></returns>
         public async Task<PagedResultDto<TableDto>> GetList(GetTablesInput input)
         {
-            var query = _tableRep.GetAll().WhereIf(!input.Filter.IsNullOrWhiteSpace(), m => m.Name.Contains(input.Filter) || m.Namespace.Contains(input.Filter));
+            var query = _tableRep.GetAllIncluding(m => m.Columns).WhereIf(!input.Filter.IsNullOrWhiteSpace(), m => m.Name.Contains(input.Filter) || m.Namespace.Contains(input.Filter));
 
             var count = await query.CountAsync();
 
@@ -43,7 +43,7 @@ namespace Net.Qks.Develop
             Table model;
             if (input.Id.HasValue)
             {
-                model = await _tableRep.GetAsync(input.Id.Value);
+                model = _tableRep.GetAllIncluding(m => m.Columns).FirstOrDefault(m => m.Id == input.Id.Value);
             }
             else
             {
@@ -65,10 +65,17 @@ namespace Net.Qks.Develop
             if (addFlag) model = ObjectMapper.Map<Table>(input);
             else
             {
-                model = await _tableRep.GetAsync(input.Id);
-                model = ObjectMapper.Map(input, model);
-            }
-
+                model = _tableRep.GetAllIncluding(m => m.Columns).FirstOrDefault(m => m.Id == input.Id);
+                ObjectMapper.Map(input, model);
+                foreach (var item in model.Columns)
+                {
+                    var col = input.Find(item.Id);
+                    if (col != null)
+                    {
+                        ObjectMapper.Map(col, item);
+                    }
+                }
+            }            
             await _tableRep.InsertOrUpdateAsync(model);
         }
 

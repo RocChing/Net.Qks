@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-Hans">
   <texts>
+    <text name="Add">添加</text>
     <text name="Pages.Develops">开发管理</text>
     <text name="Pages.Tables">实体</text>
     <text name="Pages.Tables.Create">创建实体</text>

@@ -5,6 +5,7 @@ using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Abp.Threading.BackgroundWorkers;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using Net.Qks.Configuration;
 using Net.Qks.EntityFrameworkCore;
@@ -21,10 +22,12 @@ namespace Net.Qks.Web.Startup
     {
         private readonly IConfigurationRoot _appConfiguration;
 
+        private readonly IHtmlHelper _helper;
         public QksWebMvcModule(
-            IHostingEnvironment env)
+            IHostingEnvironment env, IHtmlHelper htmlHelper)
         {
             _appConfiguration = env.GetAppConfiguration();
+            _helper = htmlHelper;
         }
 
         public override void PreInitialize()
@@ -37,6 +40,8 @@ namespace Net.Qks.Web.Startup
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(typeof(QksWebMvcModule).GetAssembly());
+
+            Logger.Info(_helper.GetType().FullName);
         }
 
         public override void PostInitialize()

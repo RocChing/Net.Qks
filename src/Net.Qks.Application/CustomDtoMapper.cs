@@ -136,8 +136,10 @@ namespace Net.Qks
             #endregion
             /* ADD YOUR OWN CUSTOM AUTOMAPPER MAPPINGS HERE */
 
-            configuration.CreateMap<Table, TableDto>().ReverseMap();
+            configuration.CreateMap<Table, TableDto>().ReverseMap().ForMember(m => m.Columns, opt => opt.Ignore());
             configuration.CreateMap<Column, ColumnDto>().ReverseMap();
+            //configuration.CreateMap<Table, TableDto>().ReverseMap().ForMember(m => m.Id, opt => opt.Ignore());
+            //configuration.CreateMap<Column, ColumnDto>().ReverseMap().ForMember(m => m.Id, opt => opt.Ignore());
         }
     }
 }

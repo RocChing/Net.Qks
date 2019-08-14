@@ -1,7 +1,13 @@
 ﻿namespace Net.Qks
 {
-    public class QksConsts
+    using Abp.Localization;
+    public static class QksConsts
     {
+        static ILocalizationManager _localMgr;
+        static QksConsts()
+        {
+
+        }
         public const string Name = "Qks";
         public const string LocalizationSourceName = "Qks";
 
@@ -48,6 +54,19 @@
             public const string EFCoreInit = EFCore + ".QksPluginEFCoreInit";
             public const string EFCoreInitDbContext = "InitDbContext";
             public const string EFCoreRegisterAssembly = "RegisterAssembly";
+        }
+
+        public class ErrorMsg
+        {
+            public const string Required = "{0}不能为空";
+            public const string MaxLength = "{0}允许的最大长度是{1}";
+        }
+
+        public class Action
+        {
+            public const string Create = "Create";
+            public const string Update = "Update";
+            public const string Delete = "Delete";
         }
     }
 }

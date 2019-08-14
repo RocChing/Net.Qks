@@ -38,6 +38,7 @@
     {
       "output": "view-resources/Areas/Admin/Views/_Bundles/app-common-scripts.min.js",
       "input": [
+        "wwwroot/view-resources/Areas/Admin/Views/Common/_Common.js",
         "wwwroot/view-resources/Areas/Admin/Views/Common/Modals/_LookupModal.js",
         "wwwroot/view-resources/Areas/Admin/Views/Common/Modals/_EntityTypeHistoryModal.js"
       ]
@@ -50,6 +51,7 @@
         "node_modules/popper.js/dist/umd/popper.js",
         "node_modules/bootstrap/dist/js/bootstrap.js",
         "node_modules/jquery-validation/dist/jquery.validate.js",
+        "node_modules/jquery-validation-unobtrusive/dist/jquery-validation-unobtrusive.js",
         "node_modules/block-ui/jquery.blockUI.js",
         "node_modules/jquery.uniform/dist/js/jquery.uniform.standalone.js",
         "node_modules/js-cookie/src/js.cookie.js",
@@ -74,6 +76,7 @@
         "node_modules/json2/lib/JSON2/static/json2.js",
         "node_modules/jquery/dist/jquery.js",
         "node_modules/jquery-validation/dist/jquery.validate.js",
+        "node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js",
         "node_modules/popper.js/dist/umd/popper.js",
         "node_modules/bootstrap/dist/js/bootstrap.js",
         "node_modules/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",

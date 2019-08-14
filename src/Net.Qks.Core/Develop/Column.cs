@@ -12,12 +12,13 @@ namespace Net.Qks.Develop
         [MaxLength(100)]
         public string FieldName { get; set; }
 
-        [MaxLength(50)]
-        public string Type { get; set; }
+        public SubTypeCode Type { get; set; }
 
         public int MaxLength { get; set; }
 
         public bool IsPrimaryKey { get; set; }
+
+        public bool IsIdentity { get; set; }
 
         public bool IsAllowNull { get; set; }
 

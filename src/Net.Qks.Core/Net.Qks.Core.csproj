@@ -62,4 +62,8 @@
     <ProjectReference Include="..\Net.Qks.Core.Shared\Net.Qks.Core.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Res\" />
+  </ItemGroup>
+
 </Project>

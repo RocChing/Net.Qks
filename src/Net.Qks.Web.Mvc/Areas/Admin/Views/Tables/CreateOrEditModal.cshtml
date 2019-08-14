@@ -1,8 +1,4 @@
-﻿@using Abp.Authorization
-@using Abp.Configuration
-@using Abp.Json
-@using Abp.Zero.Configuration
-@using Net.Qks.Develop
+﻿@using Net.Qks.Develop
 @model TableDto
 @{
     bool isEditMode = Model.Id > 0;
@@ -18,26 +14,22 @@
         </li>
         <li class="nav-item">
             <a href="#panel2" data-toggle="tab" role="tab" class="nav-link">
-                基础
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#panel3" data-toggle="tab" role="tab" class="nav-link">
-                基础
+                字段
             </a>
         </li>
     </ul>
-    <div class="tab-content">
-        <div class="tab-pane active" id="panel1" role="tabpanel">
-            内容1
+    <form name="saveForm" role="form" novalidate class="form-validation">
+        <div class="tab-content">
+            <div class="tab-pane pre-scrollable active" id="panel1" role="tabpanel">
+                <ul class="list-group">
+                    <li class="list-group-item">@Html.EditorForModel()</li>
+                </ul>
+            </div>
+            <div class="tab-pane pre-scrollable" id="panel2" role="tabpanel">
+                @Html.EditorFor(m => m.Columns, "Collection")
+            </div>
         </div>
-        <div class="tab-pane" id="panel2" role="tabpanel">
-            内容2
-        </div>
-        <div class="tab-pane" id="panel3" role="tabpanel">
-            内容3
-        </div>
-    </div>
+    </form>
 </div>
 
 @await Html.PartialAsync(WebConsts.ModalFooterName)

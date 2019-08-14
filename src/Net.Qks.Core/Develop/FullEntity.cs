@@ -1,4 +1,5 @@
 ﻿using Abp.Domain.Entities.Auditing;
+using System.ComponentModel.DataAnnotations;
 
 namespace Net.Qks.Develop
 {
@@ -6,6 +7,7 @@ namespace Net.Qks.Develop
     {
         public int Order { get; set; }
 
+        [MaxLength(300)]
         public string Description { get; set; }
 
         public FullEntity()
